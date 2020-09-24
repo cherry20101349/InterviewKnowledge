@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /**
+         * Cookie存在哪些安全问题？如何预防？
+         */
+        /*
+         * https://www.jianshu.com/p/e78cd310b360
+         *
+         * 安全问题：1，Cookie篡改
+         *                  可以通过浏览器的控制台或者 js 代码进行修改的
+         *           2，Cookie劫持
+         *           3，Cookie作用域攻击
+         * 安全防范：1，不放重要数据，重要数据放Session
+         *           2，Cookie数据加密。加密后数据就很难篡改了，但是加解密过程会带来性能消耗，这个就要进行衡量了。
+         *           3，Cookie数据加签名。对Cookie数据添加签名，这样Cookie如果被篡改了，服务端使用的时候通过校验签名就能发现了。
+         *           4，开启Cookie的httponly参数。让Cookie只能在网络请求中被传输，避免js操作和获取Cookie。
+         *           5，全站HTTPS + Cookie secure设置。避免Cookie在网络传输过程中被劫持。
+         *                 仅仅设置全站 HTTPs 是不够的，还得开启 Cookie secure 设置，否则当secure的限制没有开启时，
+         *                 那么在一个HTTPs 的网站中，一个 XSS 攻击还是能通过 HTTP 读取到 HTTPs 下的 Cookie。
+         *           6，设置更小作用域的Cookie。尽可能给Cookie设置合适且小的作用域。
+         */
+    </script>
+</head>
+<body>
+
+</body>
+</html>

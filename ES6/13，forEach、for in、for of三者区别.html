@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /**
+         * forEach、for in、for of三者区别
+         */
+        /*
+         * forEach更多的用来遍历数组
+         * for in 一般常用来遍历对象或json
+         * for of 数组对象都可遍历，遍历对象需要通过和Object.keys()
+         * for in 循环出的是key，for of 循环出的是value
+         */
+
+        let arr = [12, 13, 45, 67, 89];
+        arr.forEach(function(value,index){
+            console.log(value);// 12 13 45 67 89
+            console.log(index);// 0 1 2 3 4
+        });
+
+        let obj = {
+            name: 'cherry',
+            age: '18'
+        };
+        for(value in obj){
+            console.log(value);// name age
+        }
+        for(value of arr) {
+            console.log(value);// 12 13 45 67 89
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

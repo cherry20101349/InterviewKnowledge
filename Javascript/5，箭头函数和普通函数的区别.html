@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /**
+         * 箭头函数和普通函数的区别
+         */
+        /*
+         * 箭头函数是普通函数的简写，引入箭头函数有两个方面的作用：更简短的函数并且不绑定this。
+         * 箭头函数与普通函数不同之处有：
+         *     1，箭头函数没有this，它会从自己的作用域链的上一层继承this
+         *     2，不可以使用arguments对象，该对象在函数体内不存在。
+         *     3，不可以使用new命令，因为：
+         *           没有自己的this，无法调用call，apply，因为普通构造函数通过new实例化对象时this指向实例对象，而箭头函数没有this值。
+         *           没有prototype属性，而new命令在执行时需要将构造函数的prototype赋值给新的对象的__proto__。
+         */
+    </script>
+</head>
+<body>
+
+</body>
+</html>

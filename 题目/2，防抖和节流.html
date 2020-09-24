@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /**
+         * 防抖和节流
+         */
+        /*
+         * 防抖和节流严格算起来应该属于性能优化的知识，但实际上遇到的频率相当高，处理不当或者放任不管就容易引起浏览器卡死。
+         */
+
+        /**
+         * 防抖(debounce)
+         */
+        /*
+         * 对于短时间内连续触发的事件(如滚动事件)，防抖的含义就是让某个时间期限内(如1000ms)，事件处理函数只执行一次。
+         *
+         * 如监听浏览器滚动事件，运行的时候会发现这个函数默认的执行频率非常高，
+         * 但实际上我们并不需要如此高频的反馈，则需要实现防抖。
+         *
+         * 使用场景：页面resize事件，常用于需要做页面适配的时候。需要根据最终呈现的页面情况进行Dom渲染
+         *                          (这种情形一般是使用防抖，因为只需要判断最后一次的变化情况)
+         */
+
+        /**
+         * 节流(throttle)
+         */
+        /*
+         * 如果短时间内大量触发同一事件，那么在函数执行一次之后，该函数在指定的时间期限内不再工作，直至过了这段时间才重新生效。
+         *
+         * 使用场景：搜索框input事件，例如要支持输入实时搜索可以使用节流方法(间隔一段时间就必须查询相关内容)，
+         *                                或者需要输入间隔大于某个值(如500ms)，就当做用户输入完成，然后开始搜索。
+         */
+    </script>
+    <script>
+        // 未实现防抖
+        // window.onscroll = normal
+        function normal() {
+            var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+            console.log('滚动条位置' + scrollTop);
+        }
+
+        // 实现防抖
+        window.onscroll = debounce(showTop, 1000);
+        function debounce(fn, delay) {
+            let timer = null;
+            return function () {
+                if (timer) {
+                    clearTimeout(timer);
+                }
+                timer = setTimeout(fn, delay)
+            };
+        }
+        function showTop() {
+            var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+            console.log('滚动条位置' + scrollTop);
+        }
+
+        // 实现节流
+        window.onscroll = throttle(showTop, 1000);
+        function throttle(fn, delay) {
+            let valid = true;
+            return function () {
+                if (!valid) {
+                    return false;
+                }
+                valid = false;
+                setTimeout(function () {
+                    fn();
+                    valid = true;
+                }, delay)
+            }
+        }
+    </script>
+</head>
+<body>
+<div style="height: 11100px"></div>
+</body>
+</html>

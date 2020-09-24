@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        let obj = {
+            name: 'Cherry'
+        };
+        function name(name) {
+            console.log(name);
+            this.name = name
+        }
+        Function.prototype.myBind = function () {
+            if (typeof this !== 'function') {
+                throw new TypeError(`${this} is not a function`)
+            }
+            var _self = this;
+            var args = Array.prototype.slice.call(arguments, 1);
+            console.log(args);
+        };
+        name.myBind(obj, obj.name);
+        //        name.myBind(obj, obj.name)()
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /**
+         * 什么是闭包
+         */
+        /*
+         * 闭包就是能够读取其他函数内部变量的函数（指有权访问另一个函数作用域中变量的函数）。
+         */
+
+        /**
+         * 闭包的特性
+         */
+        /*
+         * 1，函数内再嵌套函数
+         * 2，内部函数乐意引用外层的参数和变量
+         * 3，参数和变量不会被垃圾回收机制回收
+         */
+
+        /**
+         * 闭包的好处
+         */
+        /*
+         * 1，创建私有变量，减少全局变量，防止全局污染。
+         * 2，可以操作外部作用域的变量，变量不会被浏览器回收，保存变量的值。
+         */
+    </script>
+</head>
+<body>
+<ul id="testUL">
+    <li> index = 0</li>
+    <li> index = 1</li>
+    <li> index = 2</li>
+    <li> index = 3</li>
+</ul>
+<script type="text/javascript">
+    var nodes = document.getElementsByTagName("li");
+    for (var i = 0; i < nodes.length; i++) {
+        nodes[i].onclick = (function (i) {
+            return function () {
+                console.log(i);
+            };//不用闭包的话，值每次都是4
+        })(i);
+    }
+</script>
+</body>
+</html>

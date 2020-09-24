@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /**
+         * ES6的模板字符串有哪些新特性？
+         */
+        /*
+         * 基本的字符串格式化。
+         * 将表达式嵌入字符串中进行拼接。用${}
+         * 在es5我们通过反斜杠来做多行字符串或者字符串一行行拼接。ES6反引号就能解决。
+         */
+
+        /**
+         * 实现一个类模板字符串的功能
+         */
+    </script>
+</head>
+<body>
+
+<script>
+    let name = 'web';
+    let age = 10;
+    let str = '你好，${name} 已经 ${age}岁了';
+    str = str.replace(/\$\{([^}]*)\}/g,function(){
+        return eval(arguments[1]);
+    });
+    console.log(str);//你好，web 已经 10岁了
+</script>
+</body>
+</html>
