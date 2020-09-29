@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /**
+         * Object.defineProperty()
+         */
+        /*
+         * 作用：直接在一个对象上定义一个新属性，或者修改一个已经存在的属性。
+         * Object.defineProperty(obj, prop, desc)
+         * 参数：
+         *     obj：需要定义属性的当前对象
+         *     prop：当前需要定义的属性名
+         *     desc：属性描述符
+         */
+    </script>
+</head>
+<body>
+
+<script>
+    var Book = {};
+    var name = '';
+    Object.defineProperty(Book, 'name', {
+        set: function (value) {
+            console.log(value);// vue权威指南
+            name = 111
+        },
+        get: function () {
+            return name
+        }
+    });
+    Book.name = 'vue权威指南';
+    console.log(Book.name);// 111
+</script>
+</body>
+</html>
